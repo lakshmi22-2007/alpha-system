@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Systems - From Concept to Code</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,6 +23,18 @@
             <a href="#about" class="nav-link">ABOUT US</a>
             <a href="#contact" class="nav-link">CONTACT</a>
         </nav>
+        <!-- Mobile menu toggle (visible on small screens) -->
+        <button type="button" class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+        <!-- Mobile menu (hidden by default) -->
+        <div class="mobile-menu" aria-hidden="true">
+            <a href="#home" class="nav-link">HOME</a>
+            <a href="#services" class="nav-link">SERVICES</a>
+            <a href="#work" class="nav-link">OUR WORK</a>
+            <a href="#about" class="nav-link">ABOUT US</a>
+            <a href="#contact" class="nav-link">CONTACT</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -234,37 +243,43 @@
     <!-- Process Section -->
     <section class="process">
         <div class="container">
-            <h2 class="section-title">Your Idea, Our Expertise. One Seamless Process.</h2>
-            
-            <div class="process-timeline">
+            <div class="process-header">
+                <h2 class="section-title">Your Idea, Our Expertise. One Seamless Process.</h2>
+                <p class="section-subtitle">A focused, four-step approach to take your idea from concept to launch — clear, collaborative, and measurable.</p>
+            </div>
+
+            <div class="process-grid" aria-hidden="false">
+
                 <div class="process-step">
-                    <div class="process-number">01</div>
-                    <h3>Discover</h3>
-                    <p>We listen. We learn your goals, audience, and vision.</p>
+                    <div class="step-num">01</div>
+                    <div class="step-body">
+                        <h3>Discover</h3>
+                        <p>We listen. We learn your goals, audience, and vision.</p>
+                    </div>
                 </div>
 
-                <div class="process-connector"></div>
-
                 <div class="process-step">
-                    <div class="process-number">02</div>
-                    <h3>Design</h3>
-                    <p>We create. From logo concepts to high-fidelity web prototypes.</p>
+                    <div class="step-num">02</div>
+                    <div class="step-body">
+                        <h3>Design</h3>
+                        <p>We create. From logo concepts to high-fidelity web prototypes.</p>
+                    </div>
                 </div>
 
-                <div class="process-connector"></div>
-
                 <div class="process-step">
-                    <div class="process-number">03</div>
-                    <h3>Develop</h3>
-                    <p>We build. Our full-stack team writes the code to make it all work perfectly.</p>
+                    <div class="step-num">03</div>
+                    <div class="step-body">
+                        <h3>Develop</h3>
+                        <p>We build. Our full-stack team writes the code to make it all work perfectly.</p>
+                    </div>
                 </div>
 
-                <div class="process-connector"></div>
-
                 <div class="process-step">
-                    <div class="process-number">04</div>
-                    <h3>Launch</h3>
-                    <p>We deploy. We test everything and launch your project to the world.</p>
+                    <div class="step-num">04</div>
+                    <div class="step-body">
+                        <h3>Launch</h3>
+                        <p>We deploy. We test everything and launch your project to the world.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -385,55 +400,58 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer: modern high-contrast black -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5L35 35H5L20 5Z" stroke="#0b0b0b" stroke-width="2"/>
-                            <circle cx="20" cy="32" r="2" fill="#0b0b0b"/>
+            <div class="footer-wrap">
+                <div class="f-left">
+                    <div class="f-logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M20 5L35 35H5L20 5Z" stroke="white" stroke-width="2"/>
+                            <circle cx="20" cy="32" r="2" fill="white"/>
                         </svg>
-                        <span>ALPHA SYSTEMS</span>
+                        <span class="f-brand">ALPHA SYSTEMS</span>
                     </div>
-                    <p class="brand-desc">We design focused digital products — clear results, no fluff.</p>
+                    <p class="f-desc">Focused digital products — clear results, thoughtfully built.</p>
 
-                    <form class="footer-newsletter" action="#" onsubmit="return false;">
-                        <input type="email" placeholder="Your email" aria-label="Email for newsletter" />
-                        <button class="btn-subscribe">Subscribe</button>
+                    <form class="f-news" action="#" onsubmit="return false;" aria-label="Subscribe to newsletter">
+                        <input type="email" placeholder="Enter your email" aria-label="Email address" />
+                        <button class="btn-subscribe">Join</button>
                     </form>
                 </div>
 
-                <div class="footer-links">
+                <div class="f-mid">
                     <h4>Explore</h4>
-                    <a href="#services">Services</a>
-                    <a href="#work">Work</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
+                    <ul class="f-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
 
-                <div class="footer-contact">
+                <div class="f-right">
                     <h4>Contact</h4>
-                    <p>hello@alphasystems.com</p>
-                    <p>San Francisco, CA</p>
-                    <div class="footer-social-icons">
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <p class="f-contact">hello@alphasystems.com</p>
+                    <p class="f-contact">San Francisco, CA</p>
+
+                    <div class="f-social">
+                        <a href="#" class="social-btn" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.453-1.122-.656-1.666 2.352-1.004 4.171-2.382 5.426-4.096.897 1.358 1.453 2.987 1.553 4.835zm-13.885-8.941c4.134 0 7.617 2.654 8.93 6.355-1.387.477-2.868.906-4.411 1.222-.613-1.938-1.43-3.74-2.368-5.366-.685.236-1.306.567-1.851.976-.245-.332-.505-.651-.78-.957.916-.426 1.929-.659 2.98-.659zm-7.885 8.5c0-.276.009-.549.024-.821 1.763.347 3.576.451 5.426.294-.091.247-.184.497-.276.748-2.135.537-3.965 1.462-5.518 2.72-.436-.937-.656-1.964-.656-3.045zm15.5 8.5c-1.484 0-2.868-.411-4.054-1.127 1.058-1.315 1.957-2.878 2.667-4.657 1.656.294 3.249.74 4.764 1.336-.717 2.565-2.611 4.627-5.377 5.448zm4.885-7.5c0 .367-.028.729-.069 1.084-1.764-.692-3.644-1.229-5.574-1.595.068-.213.135-.427.201-.642 2.093-.374 4.384-.372 6.836.024-.249.418-.456.858-.613 1.311z"/></svg>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.453-1.122-.656-1.666 2.352-1.004 4.171-2.382 5.426-4.096.897 1.358 1.453 2.987 1.553 4.835z"/></svg>
                         </a>
-                        <a href="#" class="social-icon" aria-label="GitHub">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <a href="#" class="social-btn" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         </a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p class="muted">&copy; 2025 Alpha Systems. All rights reserved.</p>
-                <nav class="footer-mini-nav">
+                <p class="muted">&copy; 2025 Alpha Systems</p>
+                <nav class="footer-mini-nav" aria-label="Footer legal">
                     <a href="#">Privacy</a>
                     <a href="#">Terms</a>
                 </nav>
