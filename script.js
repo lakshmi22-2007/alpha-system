@@ -12,6 +12,63 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Ensure mobile toggle initializes even if DOMContentLoaded already fired
+(function ensureMobileToggle() {
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (!mobileToggle || !mobileMenu) return;
+    // prevent duplicate initialization
+    if (mobileToggle.dataset.mobileInit === 'true') return;
+
+    const bind = () => {
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
+            mobileToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        mobileToggle.dataset.mobileInit = 'true';
+    };
+
+    // If document is ready, bind immediately, otherwise wait for DOMContentLoaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bind);
+    } else {
+        bind();
+    }
+})();
+
+// Fallback: use event delegation to guarantee the toggle works even if
+// other scripts modify or re-render the header. This catches clicks that
+// reach any descendant of an element with class 'mobile-toggle'.
+document.addEventListener('click', (e) => {
+    const toggle = e.target.closest('.mobile-toggle');
+    if (!toggle) return;
+
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (!mobileMenu) return;
+    console.log('mobile-toggle clicked');
+    const isOpen = mobileMenu.classList.toggle('open');
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+});
+
 // Update active navigation link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -253,3 +310,35 @@ pulseStyle.textContent = `
 document.head.appendChild(pulseStyle);
 
 console.log('Alpha Systems website loaded successfully!');
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
+            mobileToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close mobile menu when resizing to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
