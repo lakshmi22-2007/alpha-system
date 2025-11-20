@@ -13,6 +13,8 @@
     --color-gold: #d4af37;
     --color-silver: #c0c0c0;
     --color-bronze: #cd7f32;
+    /* dynamic header height used to offset anchors and sections */
+    --header-height: 0px;
 }
 
 html {
@@ -25,6 +27,36 @@ body {
     color: var(--color-white);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Firefox scrollbar */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }
 
 .container {
@@ -183,6 +215,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Keep a modest internal hero offset; header height is applied via JS */
     padding-top: 80px;
     overflow: hidden;
     background: #0a0a0a;
@@ -280,6 +313,18 @@ body {
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 60px 60px;
+}
+
+/* Responsive adjustment: smaller screens often have taller header (wrapped nav) */
+@media (max-width: 800px) {
+    .hero {
+        padding-top: 100px;
+    }
+}
+
+/* Ensure anchor navigation and scrolling doesn't hide section tops behind the fixed header */
+section, .hero, .services-overview, .portfolio, .about, .contact {
+    scroll-margin-top: calc(var(--header-height) + 16px);
 }
 
 .hero-content {

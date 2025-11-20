@@ -342,3 +342,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Dynamically set CSS variable --header-height so sections and anchors
+// are offset correctly beneath the fixed header. Runs on load and resize.
+(function setHeaderHeightVar() {
+    const update = () => {
+        const headerEl = document.querySelector('.header');
+        if (!headerEl) return;
+        const rect = headerEl.getBoundingClientRect();
+        // rect.bottom is the pixel position where the header ends relative to viewport top
+        const headerBottom = Math.ceil(rect.bottom);
+        document.documentElement.style.setProperty('--header-height', headerBottom + 'px');
+    };
+
+    window.addEventListener('load', update);
+    window.addEventListener('resize', update);
+    // Also run once now in case script runs after load
+    update();
+
+    // Observe header size/position changes (e.g. mobile menu expands) and update
+    const header = document.querySelector('.header');
+    if (header && 'ResizeObserver' in window) {
+        const ro = new ResizeObserver(update);
+        ro.observe(header);
+    }
+})();
