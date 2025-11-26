@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamonds - From Concept to Code</title>
+    <!-- Favicon: small diamond SVG used as the site logo -->
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g transform='rotate(90 32 32)'><path d='M32 12 L58 32 L32 52 L6 32 Z' fill='%23ffffff' stroke='%23000000' stroke-width='2'/></g></svg>">
+    <!-- Fonts for hero (Poppins + Playfair Display) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -48,23 +52,58 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="circle-blur circle-blur-1"></div>
-            <div class="circle-blur circle-blur-2"></div>
-            <div class="circle-blur circle-blur-3"></div>
-            <div class="geometric-lines"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">FROM CONCEPT TO CODE</h1>
-            <p class="hero-subtitle">We don't just build websites. We build your entire brand experience—from a memorable logo and a stunning design to a high-performance, full-stack application.</p>
-            <div class="hero-buttons">
-                <button class="btn-large btn-primary">Start Your Project</button>
-                <button class="btn-large btn-secondary">View Our Work</button>
+       
+
+        <div class="hero-grid container">
+            <div class="hero-left">
+                <span class="badge">✦ Visual Style Builder</span>
+                <h1 class="hero-heading">
+                    <span class="line">Turn Your</span>
+                    <span class="line hero-italic">Vision Into</span>
+                    <span class="line brand">Something Real</span>
+                </h1>
+                <p class="hero-desc">We craft more than visuals. We shape a full digital universe for your brand—from eye-catching identity design to a smooth, high-performance application.</p>
+
+                <div class="hero-cta">
+                    <a href="services" class="btn-large btn-primary">Start Your Project</a>
+                    <a href="work" class="btn-large btn-outline">View Examples</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="mockup" aria-hidden="true">
+                    <div class="mockup-top">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                    </div>
+
+                    <div class="mockup-body">
+                        <h4 class="mockup-title">Color Palette</h4>
+                        <div class="swatch"></div>
+
+                        <div class="mockup-bottom">
+                            <div class="copy-row">
+                                <button class="copy">Copy Code</button>
+                                <div class="code-format">oklch, hsl, rgb, hex</div>
+                            </div>
+
+                            <div class="preview">
+                                <div class="preview-card">
+                                    <div class="avatar">UI</div>
+                                    <div class="preview-lines">
+                                        <div class="line short"></div>
+                                        <div class="line long"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-       
     </section>
 
     <!-- Services Overview Section -->
