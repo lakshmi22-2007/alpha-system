@@ -202,61 +202,6 @@ buttons.forEach(button => {
     });
 });
 
-// Cursor trail effect
-let mouseX = 0;
-let mouseY = 0;
-let cursorTrail = [];
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-// Create subtle cursor trail
-function createCursorTrail() {
-    const trail = document.createElement('div');
-    trail.className = 'cursor-trail';
-    trail.style.cssText = `
-        position: fixed;
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        left: ${mouseX}px;
-        top: ${mouseY}px;
-        animation: fadeTrail 0.5s ease-out forwards;
-    `;
-    
-    document.body.appendChild(trail);
-    
-    setTimeout(() => {
-        trail.remove();
-    }, 500);
-}
-
-// Add CSS animation for cursor trail
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeTrail {
-        to {
-            opacity: 0;
-            transform: scale(2);
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Throttle cursor trail creation
-let lastTrailTime = 0;
-document.addEventListener('mousemove', () => {
-    const now = Date.now();
-    if (now - lastTrailTime > 50) {
-        createCursorTrail();
-        lastTrailTime = now;
-    }
-});
 
 // Add loading animation
 window.addEventListener('load', () => {
