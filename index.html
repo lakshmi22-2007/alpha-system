@@ -65,28 +65,48 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-       
+        <!-- Decorative mascot character -->
+        <div class="hero-mascot" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Cute white ghost/character -->
+                <ellipse cx="100" cy="120" rx="70" ry="80" fill="white"/>
+                <!-- Body waves -->
+                <path d="M30,170 Q40,160 50,170 T70,170 T90,170 T110,170 T130,170 T150,170 T170,170 L170,120 Q170,50 100,50 Q30,50 30,120 Z" fill="white"/>
+                <!-- Left eye -->
+                <ellipse cx="70" cy="100" rx="18" ry="22" fill="black"/>
+                <ellipse cx="75" cy="95" rx="8" ry="10" fill="white"/>
+                <!-- Right eye -->
+                <ellipse cx="120" cy="95" rx="18" ry="22" fill="black"/>
+                <ellipse cx="125" cy="90" rx="8" ry="10" fill="white"/>
+                <!-- Sparkles -->
+                <circle cx="160" cy="60" r="4" fill="#60a5fa" opacity="0.8"/>
+                <circle cx="180" cy="80" r="3" fill="#93c5fd" opacity="0.6"/>
+                <circle cx="170" cy="100" r="5" fill="#60a5fa" opacity="0.7"/>
+            </svg>
+        </div>
 
-        <div class="hero-grid container">
-            <div class="hero-left">
-                <span class="badge">✦ Visual Style Builder</span>
-                <h1 class="hero-heading">
-                    <span class="line">Turn Your</span>
-                    <span class="line hero-italic">Vision Into</span>
-                    <span class="line brand">Something Real</span>
-                </h1>
-                <p class="hero-desc">We craft more than visuals. We shape a full digital universe for your brand—from eye-catching identity design to a smooth, high-performance application.</p>
+        <!-- Decorative lines on the right -->
+        <div class="hero-lines" aria-hidden="true"></div>
 
-                <div class="hero-cta">
-                    <a href="#contact" class="btn-large btn-primary">Start Your Project</a>
-                   
-                </div>
+        <div class="hero-content-centered">
+            <!-- Product Hunt badges -->
+            <div class="hero-badges">
+                <span class="product-hunt-badge">🏆 PRODUCT HUNT</span>
+                <span class="product-hunt-badge">⭐ #1 Product of the Day</span>
             </div>
 
-            <div class="hero-right">
-                <div class="robot-image-container" aria-hidden="true">
-                    <img src="img/st10.png" alt="AI Robot" class="robot-image"  style="border-top-left-radius: 50px;border-bottom-right-radius: 50px;"/>
-                </div>
+            <!-- Main heading -->
+            <h1 class="hero-heading-large">
+                Learn Anything,<br>
+                <span class="hero-heading-personalized">Personalized</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle-large">The world first personal audio agent, designed for learning</p>
+
+            <!-- CTA Button -->
+            <div class="hero-cta-center">
+                <a href="#contact" class="btn-get-started">Get started</a>
             </div>
         </div>
     </section>
@@ -381,11 +401,11 @@
                     <div class="contact-details">
                         <div class="contact-detail">
                             <h4>Email</h4>
-                            <p>hello@diamonds.com</p>
+                            <a href="mailto:hello@diamonds.com" style="color: #fff;text-decoration: none;">hello@diamonds.com</a>
                         </div>
                         <div class="contact-detail">
                             <h4>Phone</h4>
-                            <p>+91 7603 825 843</p>
+                            <a href="tel:+917603825843" style="color: #fff;text-decoration: none;">+91 7603 825 843</a>
                         </div>
                         <div class="contact-detail">
                             <h4>Location</h4>
@@ -406,12 +426,15 @@
                 <div class="contact-map" aria-label="Map showing our location">
                     <iframe
                         title="Diamonds - Chennai"
-                        src="https://www.google.com/maps?q=13.0827,80.2707&z=12&output=embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.77490904504!2d79.87932745!3d13.04780875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1702000000000!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
                         style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
                     ></iframe>
-                    <p class="map-link"><a href="https://www.google.com/maps?q=Chennai,+Tamil+Nadu" target="_blank" rel="noopener">View larger map</a></p>
+                    <p class="map-link"><a href="https://www.google.com/maps/place/Chennai,+Tamil+Nadu/@13.0827,80.2707,12z" target="_blank" rel="noopener">View larger map</a></p>
                 </div>
             </div>
         </div>
@@ -475,8 +498,8 @@
 
                 <div class="f-right">
                     <h4>Contact</h4>
-                    <p class="f-contact">hello@diamonds.com</p>
-                    <p class="f-contact">+91 7603 825 843</p>
+                    <a href="mailto:hello@diamonds.com" class="f-contact" style="text-decoration: none;">hello@diamonds.com</a>
+                    <a href="tel:+917603825843" class="f-contact" style="text-decoration: none;">+91 7603 825 843</a>
                     <p class="f-contact">Remote Work in Chennai, India</p>
 
                     <div class="f-social">

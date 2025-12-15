@@ -241,7 +241,7 @@ html {
     /* Keep a modest internal hero offset; header height is applied via JS */
     padding-top: 36px;
     overflow: hidden;
-    background: #0f0f0f;
+    background: #000000;
 }
 
 /* Add diagonal stripe pattern overlay */
@@ -251,12 +251,7 @@ html {
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-image: repeating-linear-gradient(-45deg, 
-        rgba(255, 0, 100, 0.2) 0px, 
-        rgba(255, 0, 100, 0) 2px, 
-        transparent 2px, 
-        transparent 25px
-    );
+    background-image: none;
 }
 
 /* Responsive adjustment: smaller screens often have taller header (wrapped nav) */
@@ -448,6 +443,233 @@ section, .hero, .services-overview, .portfolio, .about, .contact {
     .hero { padding-top: 24px; }
     .hero-grid { flex-direction: column; padding: 36px 16px; gap: 24px; }
     .hero-left { flex: none; width: 100%; text-align: center; }
+    .hero-heading { font-size: clamp(32px, 9vw, 48px); }
+    .hero-desc { max-width: 100%; margin-inline: auto; }
+    .hero-cta { justify-content: center; flex-wrap: wrap; }
+    .hero-right { width: 100%; }
+    .robot-image-container { height: 350px; }
+}
+
+/* New Centered Hero Design */
+.hero-content-centered {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.hero-mascot {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 180px;
+    z-index: 5;
+    animation: mascotFloat 4s ease-in-out infinite;
+}
+
+@keyframes mascotFloat {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(10px); }
+}
+
+.hero-mascot svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.hero-lines {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+    z-index: 1;
+    pointer-events: none;
+    background-image: none;
+    display: none;
+}
+
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.product-hunt-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-heading-large {
+    font-size: clamp(48px, 10vw, 110px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 30px;
+    color: #ffffff;
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -2px;
+}
+
+.hero-heading-personalized {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-subtitle-large {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 650px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.hero-cta-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-get-started {
+    background: #ffffff;
+    color: #000000;
+    padding: 16px 48px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-get-started:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments for new hero */
+@media (max-width: 1024px) {
+    .hero-mascot {
+        width: 120px;
+        height: 120px;
+        left: 5%;
+    }
+    
+    .hero-heading-large {
+        font-size: clamp(42px, 8vw, 80px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .hero-content-centered {
+        padding: 40px 20px;
+    }
+    
+    .hero-mascot {
+        display: none;
+    }
+    
+    .hero-badges {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    
+    .product-hunt-badge {
+        font-size: 10px;
+        padding: 5px 12px;
+    }
+    
+    .hero-heading-large {
+        font-size: clamp(36px, 10vw, 56px);
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+    }
+    
+    .hero-subtitle-large {
+        font-size: 16px;
+        margin-bottom: 35px;
+        padding: 0 10px;
+    }
+    
+    .btn-get-started {
+        width: 100%;
+        max-width: 300px;
+        padding: 14px 32px;
+        font-size: 15px;
+    }
+    
+    .hero-lines {
+        width: 100%;
+        height: 40%;
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 0 50px;
+    }
+    
+    .hero-content-centered {
+        padding: 30px 16px;
+    }
+    
+    .hero-badges {
+        margin-bottom: 25px;
+        gap: 6px;
+    }
+    
+    .product-hunt-badge {
+        font-size: 9px;
+        padding: 4px 10px;
+    }
+    
+    .hero-heading-large {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+    
+    .hero-subtitle-large {
+        font-size: 14px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+    
+    .btn-get-started {
+        padding: 12px 28px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* Hide old hero elements when using new design */
+.hero-content-centered ~ .hero-grid {
+    display: none;
+}
     .badge { margin-bottom: 14px; font-size: 12px; padding: 6px 12px; }
     .hero-heading { font-size: clamp(28px, 10vw, 44px); line-height: 1.02; }
     .hero-heading .brand { font-size: clamp(28px, 9vw, 40px); }
