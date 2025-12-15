@@ -468,7 +468,7 @@ section, .hero, .services-overview, .portfolio, .about, .contact {
     width: 180px;
     height: 180px;
     z-index: 5;
-    animation: mascotFloat 4s ease-in-out infinite;
+    animation: mascotFloat 2s ease-in-out infinite;
 }
 
 @keyframes mascotFloat {
